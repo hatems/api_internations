@@ -1,0 +1,53 @@
+Architecture:
+Under src
+Repository: DAO
+Service: Business logic
+Controller: Exposition
+Entity: Entities
+
+1) Run in the terminal composer.install
+2) Update maybe the .env file if you are using lamp or mamp or your customised access
+3) Run php bin/console doctrine:schema:create or
+Run php bin/console doctrine:schema:update --force
+4) Tests:
+php bin/phpunit tests/TestAddUserAndGroup.php
+php bin/phpunit tests/TestAddAssignment.php
+php bin/phpunit tests/TestDeleteAssignment.php
+php bin/phpunit tests/TestDeleteUserAndGroup.php
+
+5) php -S 127.0.0.1:8000 -t public
+
+• As an admin I can add users — a user has a name.
+Uri: Users
+Method: POST
+Body: name
+
+• As an admin I can delete users.
+Uri: Users/{user_id}
+Method:DELETE
+
+
+• As an admin I can assign users to a group they aren’t already part of.
+Uri: Assignments
+Method: POST
+Body: group_id, user_id
+
+• As an admin I can remove users from a group.
+Uri: Assignments/{user_id}/{group_id}
+Method:DELETE
+
+• As an admin I can create groups.
+Uri: Groups
+Method: POST
+Body: name
+
+• As an admin I can delete groups when they no longer have members.
+Uri: Groups/{group_id}
+Method: DELETE
+
+6) TODO and what is missing:
+* Authentification and Api Documentation
+If it's a must for the technical task please send me an email to hatem.sahli@esprit.tn i will send back to you
+the project updated asap.
+* Your Lead dev or frontEnd dev expectations for the responses so i can change them.
+You will find attached on the email the Class Diagram.
